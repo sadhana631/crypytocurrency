@@ -6,27 +6,27 @@ import CryptocurrenciesList from '../CryptocurrenciesList'
 
 import './index.css'
 
-const apiUrl = 'https://apis.ccbp.in/crypto-currency-container'
+const apiUrl = 'https://apis.ccbp.in/crypto-currency-converter'
 
 class CrryptocurrencyTracker extends Component {
   state = {
     cryptocurrenciesData: [],
     isLoading: true,
-  }  
+  }
 
   componentDidMount() {
     this.getCryptocurrencies()
   }
 
   getCryptocurrencies = async () => {
-    const response = await fetch (apiUrl)
+    const response = await fetch(apiUrl)
     const fetchedData = await response.json()
 
     this.setState({
       cryptocurrenciesData: fetchedData.map(eachCryptocurrency => ({
         id: eachCryptocurrency.id,
         currencyLogoUrl: eachCryptocurrency.currency_logo,
-        currencyName: eachCryptocurrency:currency_name,
+        currencyName: eachCryptocurrency.currency_name,
         usdValue: eachCryptocurrency.usd_value,
         euroValue: eachCryptocurrency.euro_value,
       })),
@@ -37,7 +37,7 @@ class CrryptocurrencyTracker extends Component {
   renderCryptocurrenciesList = () => {
     const {cryptocurrenciesData} = this.state
     return <CryptocurrenciesList cryptocurrenciesData={cryptocurrenciesData} />
-  }      
+  }
 
   renderLoader = () => (
     <div data-testid="loader">
@@ -51,13 +51,9 @@ class CrryptocurrencyTracker extends Component {
     return (
       <div className="app-container">
         {isLoading ? this.renderLoader() : this.renderCryptocurrenciesList()}
-      </div>  
-    )  
-  }  
+      </div>
+    )
+  }
 }
 
 export default CrryptocurrencyTracker
-
-
-
-

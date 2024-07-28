@@ -4,13 +4,13 @@ import CryptocurrencyItem from '../CryptocurrencyItem'
 
 import './index.css'
 
-class CryptocurrencyList extends Component {
+class CryptocurrenciesList extends Component {
   renderCryptocurrenciesHeader = () => (
     <div className="list-header">
       <p className="list-coin-type-heading">Coin Type</p>
-      <div className="uds-and-euro-values-container">
+      <div className="usd-and-euro-values-container">
         <p className="list-coin-value-heading">USD</p>
-        <P className="list-coin-value-heading">EURO</P>
+        <p className="list-coin-value-heading">EURO</p>
       </div>
     </div>
   )
@@ -39,9 +39,10 @@ class CryptocurrencyList extends Component {
         <h1 className="heading">Cryptocurrency Tracker</h1>
         <img
           className="cryptocurrrency-img"
-          src="https://assets.ccbp.in/frontend/react-js.cryptocurrrency-bg.png"
+          src="https://assets.ccbp.in/frontend/react-js/cryptocurrrency-bg.png"
           alt="cryptocurrrency"
         />
+        {this.renderCryptocurrenciesView()}
       </div>
     )
   }
